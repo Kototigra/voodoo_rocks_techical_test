@@ -1,0 +1,124 @@
+//VARIABLES
+
+$rad: 0.7rem;
+$dur: 0.3s;
+$color-primary: rgb(237, 241, 247);
+$color-primary-dark: rgb(130, 130, 130);
+$color-secondary: rgb(180, 180, 180);
+$color-blue: rgb(126, 169, 254);
+
+//RESPONSIVE BREAKPOINTS
+
+$bp-desktop: 75em; //1200px
+$bp-tab-landscape: 62.5em; //1000px
+$bp-tab-port: 50em; //800px
+$bp-phone: 24em; //384px
+$bp-small-phone: 21em; //348px
+
+body {
+  background-color: $color-primary;
+  font-family: "Lato", sans-serif;
+  color: &color-primary-dark;
+}
+
+//SEARCH
+
+.search {
+  position: relative;
+  width: 35rem;
+  border-radius: $rad;
+  margin: 3rem auto;
+  @media only screen and (max-width: $bp-tab-landscape) {
+    width: 30rem;
+  }
+  @media only screen and (max-width: $bp-tab-port) {
+    width: 20rem;
+  }
+  @media only screen and (max-width: $bp-small-phone) {
+    width: 15rem;
+  }
+
+  &__input {
+    height: 3rem;
+    border: 0;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0 1.6rem;
+    border-radius: $rad;
+    appearance: none;
+    z-index: 1;
+    position: relative;
+    color: $color-blue;
+    transition: all $dur;
+  }
+  &__input::placeholder {
+    font-size: 1.2rem;
+    color: $color-primary-dark;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    margin-left: 1.6rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all $dur;
+    color: $color-primary-dark;
+  }
+}
+
+// CARD
+.container {
+  margin: 3rem;
+  @media only screen and (max-width: $bp-phone) {
+    margin: 3rem 0.5rem;
+  }
+}
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 4rem;
+  align-items: start;
+  justify-items: center;
+  @media only screen and (max-width: $bp-tab-landscape) {
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  }
+  @media only screen and (max-width: $bp-phone) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+.card {
+  background-color: #fff;
+  width: 20rem;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 0.35rem;
+  box-shadow: 0rem 0.3rem 0.8rem rgba(99, 99, 99, 0.1);
+  display: inline-block;
+  @media only screen and (max-width: $bp-tab-landscape) {
+    width: 18rem;
+  }
+  @media only screen and (max-width: $bp-small-phone) {
+    width: 13rem;
+  }
+
+  &__title {
+    color: $color-blue;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &__text {
+    line-height: 1.3rem;
+  }
+
+  &__author {
+    color: $color-secondary;
+  }
+}
